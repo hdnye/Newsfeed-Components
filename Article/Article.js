@@ -112,3 +112,136 @@ const data = [
   Step 5: Add a new article to the array. Make sure it is in the same format as the others. Refresh the page to see the new article.
 
 */
+/*--Practice--*/
+
+/*
+
+add button to HTML 
+
+add styling to CSS
+add new class to avoid in-line styling i.e. '.style. ='
+
+DOM JS -->
+
+
+const domButton = document.querySelector('.dom-button');
+console.log(domButton);
+
+domButton.textContent = 'Hi I am a button!';
+domButton.classList.add('dom-button-large');
+
+domButton.addEventListener('click', (e) => {
+  console.log(`Clicked the ${e.target}`);
+
+
+});
+
+To remove the HTML element & add w/ JS in DOM: 
+
+const domButton = document.createElement('button');
+
+const body = document.querySelector('.body');
+console.log(body);
+body.append(domButton);
+
+Function Form to create Component: 
+
+function for different dynamic DOM element:
+function consoleEvent() {
+  console.log('Some text here');
+}
+
+function buttonMaker(para 1(ex:text), para2(ex:color), para3(ex:eventType, para4(ex:eventFunc))  {
+
+const buttton = document.createElement('button'); 
+
+button.textContent = 'Hi I am a button!';
+button.classList.add('dom-button-large');
+
+button.addEventListener('click', (e) => {
+  console.log(`Clicked the ${e.target}`);
+
+  Can also :
+
+  button.addEventListener(eventType, eventFunc); (see f() above)
+
+});
+ 
+return button;
+
+});
+
+buttonMaker();
+
+const button1 = buttonMaker('text', 'color', 'click', consoleEvent);
+const button2 = buttonMaker();
+
+const body = document.querySelector('body');
+body.append(button1);
+body.append(button2);
+
+
+//complete function for no HTML// 
+
+
+function panelCreator(title, content) {
+
+const panel = document.createElement('div');
+const panelBar = docuemnt.createElement('div');
+const panelTitle = document.createElement('h3');
+const buttonPanel = docuemnt.createElement('button');
+const buttonOpen = document.createElement('button');
+const buttonClose = document.createElement('button');
+const panelContent = docuemnt.createElement('panel');
+
+//adding classses to the new elements
+
+panel.classList.add('panel');
+panelBar.classList.add('panel-bar');
+buttonPanel.classList.add('panel-buttons');
+buttonOpen.classList.add('panel-btn-open', 'hide-btn');
+buttonClose.classList.add('panel-btn-close');
+panelContent.classList.add('panel-content');
+
+
+const open = '\u25bc'; //unicode//
+const close = '\u25b2';
+
+button.textContent = open;
+button.textContent = close;
+panelTitle.textContent = title;
+panelContent.textContent = content;
+
+buttonPanel.addEventListener('click', (e) => {
+  buttonOpen.classList.toggle('hide-btn'); //this is the class name being invoked//
+  buttonClose.classList.toggle('hide-btn');
+
+
+  panelContent.classList.toggle('toggle-on'); //to show display hidden by CSS//
+
+});
+
+
+panel.addpendChild(panelBar);
+panel.appendChild([panelContent]);
+panelBar.appendChild(panelTitle);
+panelBar.appendChild(buttonPanel);
+buttonPanel.appendChild(buttonOpen);
+buttonPanel.appendChild(buttonClose);
+
+return panel;
+
+}
+
+const body = document.querySelector('.body');
+
+panelDate.forEach((data) => {
+
+    body.appendChild(panelCreator(data.title, data.content));
+
+});
+
+//const panel = panelCreator('hello', 'world');//
+
+
+*/

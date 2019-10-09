@@ -112,7 +112,11 @@ const data = [
   Step 5: Add a new article to the array. Make sure it is in the same format as the others. Refresh the page to see the new article.
 
 */
-/*--Practice--*/
+
+const getData = document.querySelector('data');
+const articles = document.querySelector('.articles');
+
+/*--Class Notes--*/
 
 /*
 
@@ -183,6 +187,7 @@ body.append(button2);
 
 //complete function for no HTML// 
 
+//this f() creates the containers for the new elements //
 
 function panelCreator(title, content) {
 
@@ -194,7 +199,7 @@ const buttonOpen = document.createElement('button');
 const buttonClose = document.createElement('button');
 const panelContent = docuemnt.createElement('panel');
 
-//adding classses to the new elements
+//adds classses to the new elements //
 
 panel.classList.add('panel');
 panelBar.classList.add('panel-bar');
@@ -203,17 +208,22 @@ buttonOpen.classList.add('panel-btn-open', 'hide-btn');
 buttonClose.classList.add('panel-btn-close');
 panelContent.classList.add('panel-content');
 
+//unicode character codes //
 
-const open = '\u25bc'; //unicode//
+const open = '\u25bc'; 
 const close = '\u25b2';
+
+//sets the text content in the unicode //
 
 button.textContent = open;
 button.textContent = close;
 panelTitle.textContent = title;
 panelContent.textContent = content;
 
+//adds the event listener to the element //
+
 buttonPanel.addEventListener('click', (e) => {
-  buttonOpen.classList.toggle('hide-btn'); //this is the class name being invoked//
+  buttonOpen.classList.toggle('hide-btn'); <-this is the class name being invoked//
   buttonClose.classList.toggle('hide-btn');
 
 
@@ -221,6 +231,7 @@ buttonPanel.addEventListener('click', (e) => {
 
 });
 
+// this appends the classes so they're attaached to correct parent //
 
 panel.addpendChild(panelBar);
 panel.appendChild([panelContent]);
@@ -233,15 +244,17 @@ return panel;
 
 }
 
+// this selects the main container all the new elements will be inside of //
+
 const body = document.querySelector('.body');
 
-panelDate.forEach((data) => {
+// loops over the panel data //
+
+panelData.forEach((data) => {
 
     body.appendChild(panelCreator(data.title, data.content));
 
 });
-
-//const panel = panelCreator('hello', 'world');//
 
 
 */

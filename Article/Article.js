@@ -109,12 +109,50 @@ const data = [
 
   Step 4: Map over the data, creating a component for each oject and add each component to the DOM as children of the 'articles' div.
 
-  Step 5: Add a new article to the array. Make sure it is in the same format as the others. Refresh the page to see the new article.
-
+  Step 5: Add a new article to the items. Make sure it is in the same format as the others. Refresh the page to see the new article.
 */
 
-const getData = document.querySelector('data');
-const articles = document.querySelector('.articles');
+  const getData = document.querySelector('data');
+  const articles = document.querySelector('.articles');
+
+
+function feedCreator(items) {
+
+  const title = document.createElement('h2');
+  const date = document.createElement('div');
+  const articleContent = document.createElement('p');
+  const artBtn = document.createElement('expandButton');
+  
+  title.classList.add('article');
+  date.classList.add('article', 'date');
+  articleContent.classList.add('article');
+  artBtn.classList.add('article', 'close', 'expandButton', 'article-open');
+
+  
+  articleContent.addEventListener('click', () => {
+    artBtn.classList.toggle('article-open');
+    artBtn.classList.toggle('article close');
+
+    title.textContent = title;
+    date.textContent = date;
+    articleContent = article;
+  
+
+  })
+
+  title.appendChild(date);
+  date.appendChild(articleContent);
+  articleContent.appendChild(artBtn);
+ 
+  return title;
+
+};
+
+
+data.forEach((items) => {
+  articles.appendChild(feedCreators(items));
+
+}); 
 
 /*--Class Notes--*/
 

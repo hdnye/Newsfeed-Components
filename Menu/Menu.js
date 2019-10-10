@@ -22,7 +22,7 @@ let menuItems = [
   The function takes an array as its only argument.
 
   Step 2: Inside this function, iterate over the array creating a list item <li> element for each item in the array. 
-  Add those items to the <ul>
+  Add those array to the <ul>
 
   Step 3: Using a DOM selector, select the menu button (the element with a class of 'menu-button') currently on the DOM.
 
@@ -34,17 +34,17 @@ let menuItems = [
   
 */
 
-const menuDiv = document.querySelector('.menu');
-const menuBtn = document.querySelector('.menu-button .menu--open');
-const header = document.querySelector('header');
+  const menuDiv = document.querySelector('.menu');
+  const menuBtn = document.querySelector('.menu-button', '.menu--open');
+  const header = document.querySelector('header');
 
-function menuCreator() {
+function menuCreator(array) {
 
   const menuDiv = document.createElement('div');
   const liItems = document.createElement('ul');
 
   menuDiv.classList.add('menu');
-  liItems.classList.add('ul li');
+  liItems.classList.add('ul', 'li');
 
   menuBtn.addEventListener('click', () => {
       menuDiv.classList.toggle('toggle-on');
@@ -58,16 +58,19 @@ function menuCreator() {
   
  }; 
 
-  //   let newArray = menuItems.forEach( (e) => {
+ menuCreator();
+
+    menuItems.forEach( (array) => {
    
-  //   header.appendChild(menuCreator([i]));
+    header.appendChild(menuCreator(array));
 
-  // });
+  });
 
+    
 
 /* ex: 
 
-  let newArray = menuItems.map( (items) => {
+  let newArray = menuItems.map( (array) => {
     let var = func(item);
     return var;
 

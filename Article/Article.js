@@ -148,6 +148,7 @@ function feedCreator(items) {
 
 };
 
+feedCreator();
 
 data.forEach((items) => {
   articles.appendChild(feedCreators(items));

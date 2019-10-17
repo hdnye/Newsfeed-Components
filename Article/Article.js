@@ -1,6 +1,6 @@
-/* This is the data we will be using to create our article components */
-/* Look over this data, then proceed to line 91*/
-const data = [
+/* This is the info we will be using to create our article components */
+/* Look over this info, then proceed to line 91*/
+const info = [
   {
     title: 'Lambda School Students: "We\'re the best!"',
     date: 'Nov 5th, 2018',
@@ -101,59 +101,90 @@ const data = [
 
   Hint: You will need to use createElement more than once here!
 
-  Your function should take either an object as it's one argument, or 5 separate arguments mapping to each piece of the data object above.
+  Your function should take either an object as it's one argument, or 5 separate arguments mapping to each piece of the info object above.
 
   Step 2: Add an event listener to the expandButton span. This event listener should toggle the class 'article-open' on the 'article' div.
 
   Step 3: return the entire component.
 
-  Step 4: Map over the data, creating a component for each oject and add each component to the DOM as children of the 'articles' div.
+  Step 4: Map over the info, creating a component for each oject and add each component to the DOM as children of the 'articles' div.
 
   Step 5: Add a new article to the items. Make sure it is in the same format as the others. Refresh the page to see the new article.
 */
 
-  const getData = document.querySelector('data');
-  const articles = document.querySelector('.articles');
+
+const arts = document.querySelector('.articles');
+
+/*--Create Button--*/
 
 
-function feedCreator(items) {
 
+
+function feedCreator(data) {
+
+  /*--Create HTML Elements--*/
+
+  const article = document.createElement('div');
   const title = document.createElement('h2');
-  const date = document.createElement('div');
-  const articleContent = document.createElement('p');
-  const artBtn = document.createElement('expandButton');
-  
-  title.classList.add('article');
-  date.classList.add('article', 'date');
-  articleContent.classList.add('article');
-  artBtn.classList.add('article', 'close', 'expandButton', 'article-open');
+  const date = document.createElement('date');
+  const para1 = document.createElement('p');
+  const para2 = document.createElement('p');
+  const para3 = document.createElement('p');
+  const btn = document.createElement('span');
 
-  
-  articleContent.addEventListener('click', () => {
-    artBtn.classList.toggle('article-open');
-    artBtn.classList.toggle('article close');
+  /*--Append Elements to add to the DOM--*/ 
 
-    title.textContent = title;
-    date.textContent = date;
-    articleContent = article;
-  
+  article.appendChild(title);
+  article.appendChild(date);
+  article.appendChild(para1);
+  article.appendChild(para2);
+  article.appendChild(para3);
+  article.appendChild(btn);
 
-  })
+  /*--Create Classes --*/ 
 
-  title.appendChild(date);
-  date.appendChild(articleContent);
-  articleContent.appendChild(artBtn);
- 
-  return title;
+  article.classList.add('article');
+  title.classList.add('h2');
+  date.classList.add('date');
+  para1.classList.add('p')
+  para2.classList.add('p')
+  para3.classList.add('p')
+  btn.classList.add('expandButton', 'article-open');
+
+  /*--Add Values to Elements--*/
+
+  title.textContent = info.title;
+  date.textContent = info.date;
+  para1.textContent = info.firstParagraph;
+  para2.textContent = info.secondParagraph;
+  para3.textContent = info.thirdParagraph;
+
+  /*--UniCode--*/
+
+  const open = '\u25bc'; 
+
+  btn.textContent = open;
+
+/*--Button Event--*/
+
+  btn.addEventListener('click', (e) => {
+     e.article.classList.toggle('article-open');
+    })
+
+ return article;
 
 };
 
-feedCreator();
 
-data.forEach((items) => {
-  articles.appendChild(feedCreators(items));
+  info.map(content => {
+    arts.appendChild(feedCreator(content));
 
-}); 
+})
+
+
+
+
+
 
 /*--Class Notes--*/
 
@@ -287,13 +318,52 @@ return panel;
 
 const body = document.querySelector('.body');
 
-// loops over the panel data //
+// loops over the panel info //
 
-panelData.forEach((data) => {
+panelinfo.forEach((info) => {
 
-    body.appendChild(panelCreator(data.title, data.content));
+    body.appendChild(panelCreator(info.title, info.content));
 
 });
 
 
 */
+
+
+//   const getinfo = document.querySelector('info');
+//   // console.log(info);
+//   const articles = document.querySelector('.articles');
+//   console.log(articles);
+
+
+// function feedCreator(items) {
+
+//   const title = document.createElement('h2');
+//   const date = document.createElement('div');
+//   const articleContent = document.createElement('p');
+//   const artBtn = document.createElement('expandButton');
+  
+//   title.classList.add('article');
+//   date.classList.add('article', 'date');
+//   articleContent.classList.add('article');
+//   artBtn.classList.add('article', 'close', 'expandButton', 'article-open');
+
+  
+//   articleContent.addEventListener('click', () => {
+//     artBtn.classList.toggle('article-open');
+//     artBtn.classList.toggle('article close');
+
+//     title.textContent = title;
+//     date.textContent = date;
+//     articleContent.textContent = article;
+  
+//   })    
+
+//   title.appendChild(date);
+//   date.appendChild(articleContent);
+//   articleContent.appendChild(artBtn);
+ 
+  
+//   return title;
+
+// };

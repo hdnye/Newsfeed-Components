@@ -46,8 +46,7 @@ function menuCreator(array) {
   const menuBtn = document.querySelector('.menu-button');
 
   menuDiv.classList.add('menu');
-  // liItems.classList.add('ul');
-
+  
    array.forEach( (item) => {
    
     const newItem = document.createElement('li');

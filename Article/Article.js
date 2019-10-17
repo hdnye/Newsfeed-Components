@@ -120,25 +120,25 @@ const arts = document.querySelector('.articles');
 
 
 
-function feedCreator(data) {
+let  feedCreator = (info) => {
 
   /*--Create HTML Elements--*/
 
   const article = document.createElement('div');
   const title = document.createElement('h2');
   const date = document.createElement('date');
-  const para1 = document.createElement('p');
-  const para2 = document.createElement('p');
-  const para3 = document.createElement('p');
+  const firstParagraph = document.createElement('p');
+  const secondParagraph = document.createElement('p');
+  const thirdParagraph = document.createElement('p');
   const btn = document.createElement('span');
 
   /*--Append Elements to add to the DOM--*/ 
 
   article.appendChild(title);
   article.appendChild(date);
-  article.appendChild(para1);
-  article.appendChild(para2);
-  article.appendChild(para3);
+  article.appendChild(firstParagraph);
+  article.appendChild(secondParagraph);
+  article.appendChild(thirdParagraph);
   article.appendChild(btn);
 
   /*--Create Classes --*/ 
@@ -146,18 +146,19 @@ function feedCreator(data) {
   article.classList.add('article');
   title.classList.add('h2');
   date.classList.add('date');
-  para1.classList.add('p')
-  para2.classList.add('p')
-  para3.classList.add('p')
-  btn.classList.add('expandButton', 'article-open');
+  firstParagraph.classList.add('p')
+  secondParagraph.classList.add('p')
+  thirdParagraph.classList.add('p')
+  btn.classList.add('expandButton');
+  
 
   /*--Add Values to Elements--*/
 
   title.textContent = info.title;
   date.textContent = info.date;
-  para1.textContent = info.firstParagraph;
-  para2.textContent = info.secondParagraph;
-  para3.textContent = info.thirdParagraph;
+  firstParagraph.textContent = info.firstParagraph;
+  secondParagraph.textContent = info.secondParagraph;
+  thirdParagraph.textContent = info.thirdParagraph;
 
   /*--UniCode--*/
 
@@ -166,18 +167,19 @@ function feedCreator(data) {
   btn.textContent = open;
 
 /*--Button Event--*/
-
+   
   btn.addEventListener('click', (e) => {
      e.article.classList.toggle('article-open');
-    })
+     return btn; 
 
+  })
+ 
  return article;
 
 };
 
-
   info.map(content => {
-    arts.appendChild(feedCreator(content));
+    return arts.appendChild(feedCreator(content));
 
 })
 
